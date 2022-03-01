@@ -10,7 +10,9 @@
     state: present
 
 - name: Update apt and install docker-ce
-  apt: update_cache=yes name=docker-ce state=latest
+  apt:
+    name: docker-ce
+    update_cache: yes
 
 - name: Create "docker" group
   group:

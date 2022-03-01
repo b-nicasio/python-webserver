@@ -1,0 +1,6 @@
+Flask==2.0.3
+Flask_Bcrypt==0.7.1
+names==0.3.0
+python-decouple==3.6
+flask-mysql==1.5.2
+cryptography==3.4.7

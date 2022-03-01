@@ -1,0 +1,15 @@
+---
+- name: Start all containers
+  shell: "docker-compose up -d"
+  args:
+    chdir: "{{ app_path }}"
+
+- name: Execute migrations.
+  shell: "docker exec -i webserver1 python3 db_migrations.py"
+  args:
+    chdir: "{{ app_path }}"
+
+- name: Execute Seeders.
+  shell: "docker exec -i webserver1 python3 db_seed.py"
+  args:
+    chdir: "{{ app_path }}"

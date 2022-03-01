@@ -1,0 +1,13 @@
+---
+- import_tasks: apt.yml
+  tags:
+    - apt
+
+- import_tasks: locale.yml
+  tags:
+    - locale
+
+- import_tasks: misc.yml
+  tags:
+    - misc
+    - permission

@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  mysql_db:
+    container_name: mysql_db
+    image: mysql
+    environment:
+      MYSQL_DATABASE: names
+      MYSQL_USER: python_admin
+      MYSQL_PASSWORD: somE_GenerIc_p@ssword
+      MYSQL_ROOT_PASSWORD: somE_GenerIc_p@ssword
+    ports:
+      - target: 3306
+        published: 3306
+
+  web_server1:
+    container_name: webserver1
+    image: webserver
+    build:
+      context: webserver
+      dockerfile: ../.docker/webserver.Dockerfile
+    ports:
+      - target: 8000
+        published: 8002
+    depends_on:
+      - mysql_db
+
+  web_server2:
+    container_name: webserver2
+    image: webserver
+    build:
+      context: webserver
+      dockerfile: ../.docker/webserver.Dockerfile
+    ports:
+      - target: 8000
+        published: 8001
+    depends_on:
+      - mysql_db
+
+  proxy:
+    container_name: proxy
+    image: proxy
+    build:
+      context: .docker
+      dockerfile: nginx.Dockerfile
+    ports:
+      - target: 80
+        published: 80
+    depends_on:
+      - web_server1
+      - web_server2

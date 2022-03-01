@@ -1,0 +1,8 @@
+---
+- name: Ensure application path has the right permissions.
+  file:
+    path: "{{ app_path }}"
+    owner: "{{ system_user }}"
+    group: "{{ system_group }}"
+    mode: 0755
+  become: yes

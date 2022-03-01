@@ -1,0 +1,8 @@
+---
+- hosts: "{{ target }}"
+  user: "{{ system_user }}"
+  gather_facts: true
+  roles:
+    - system
+    - docker
+    - webserver

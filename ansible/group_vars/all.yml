@@ -1,0 +1,12 @@
+---
+# System
+system_user: ubuntu
+system_group: ubuntu
+
+# Settings for packages installation
+debian_frontend: "DEBIAN_FRONTEND=noninteractive"
+
+# Git
+repo: "https://github.com/b-nicasio/python-webserver.git"
+version: main
+app_path: /srv

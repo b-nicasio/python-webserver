@@ -1,0 +1,14 @@
+---
+- name: Update system packages.
+  raw: "{{ debian_frontend }} apt {{ item }} -yq"
+  loop:
+    - update
+    - upgrade
+    - autoremove
+    - autoclean
+  become: yes
+
+- name: Install required system packages.
+  raw: "{{ debian_frontend }} apt install {{ item }} -yq"
+  loop: "{{ system_packages }}"
+  become: yes

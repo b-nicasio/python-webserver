@@ -1,7 +1,7 @@
 name: ansible_linting
 
 on:
-  push:
+  pull_request:
     paths:
       - 'ansible/**'
 
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip3 install ansible ansible-lint
 
-      - name: Lint with flake8
+      - name: Run Ansible lint
         run: |
           cd ansible
           ansible-lint webserver.yml

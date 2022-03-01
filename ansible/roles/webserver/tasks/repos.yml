@@ -1,5 +1,5 @@
 ---
-- name: Cloning {{ application.name }} repository.
+- name: Cloning repository.
   git:
     repo: "{{ repo }}"
     dest: "{{ app_path }}"

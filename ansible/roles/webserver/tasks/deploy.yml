@@ -4,12 +4,14 @@
   args:
     chdir: "{{ app_path }}"
 
-- name: Execute migrations.
-  shell: "docker exec -i webserver1 python3 db_migrations.py"
-  args:
-    chdir: "{{ app_path }}"
+- name: Wait for container to be ready
+  pause:
+    seconds: 30
 
-- name: Execute Seeders.
-  shell: "docker exec -i webserver1 python3 db_seed.py"
+- name: Execute database migrations and seeders.
+  shell: "docker exec -i webserver1 python3 {{ item }}"
   args:
     chdir: "{{ app_path }}"
+  loop:
+    - db_migrations.py
+    - db_seed.py

@@ -16,5 +16,7 @@ jobs:
         run: pip3 install flake8
 
       - name: Lint with flake8
-        run: flake8 webserver
+        run: |
+          cd webserver
+          flake8 webserver
 

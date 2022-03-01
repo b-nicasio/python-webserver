@@ -3,6 +3,6 @@
   user: "{{ system_user }}"
   gather_facts: false
   roles:
-    - system
-    - docker
+    #- system
+    #- docker
     - webserver

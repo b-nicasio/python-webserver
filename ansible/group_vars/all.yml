@@ -13,3 +13,8 @@ app_path: /srv
 
 # Docker
 compose_version: 1.29.2/
+
+# APT
+system_packages:
+  - curl
+  - software-properties-common

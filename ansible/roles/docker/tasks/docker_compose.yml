@@ -7,3 +7,6 @@
     path: /usr/local/bin/docker-compose
     state: file
     mode: 0755
+
+- name: reset ssh connection
+  meta: reset_connection

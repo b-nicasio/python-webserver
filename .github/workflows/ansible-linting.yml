@@ -6,12 +6,18 @@ on:
       - 'ansible/**'
 
 jobs:
-  name: ansible lint
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@master
-      with:
-        targets: ansible/webserver.yml
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run:
+          - pip3 install ansible ansible-lint
+      - name: Lint with flake8
+        run: |
+          cd ansible
+          ansible-lint webserver.yml

@@ -1,0 +1,9 @@
+---
+- name: install docker-compose
+  shell: curl -L "https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- name: Give executable permission to docker compose
+  file:
+    path: /usr/local/bin/docker-compose
+    state: file
+    mode: 0755

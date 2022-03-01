@@ -1,7 +1,7 @@
 ---
 # System
-system_user: ubuntu
-system_group: ubuntu
+system_user: vagrant
+system_group: vagrant
 
 # Settings for packages installation
 debian_frontend: "DEBIAN_FRONTEND=noninteractive"
@@ -10,3 +10,6 @@ debian_frontend: "DEBIAN_FRONTEND=noninteractive"
 repo: "https://github.com/b-nicasio/python-webserver.git"
 version: main
 app_path: /srv
+
+# Docker
+compose_version: 1.29.2/

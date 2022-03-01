@@ -1,0 +1,10 @@
+---
+- import_tasks: docker.yml
+  become: yes
+  tags:
+    - docker
+
+- import_tasks: docker_compose.yml
+  become: yes
+  tags:
+    - docker_compose

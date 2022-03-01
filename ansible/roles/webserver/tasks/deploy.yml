@@ -4,6 +4,10 @@
   args:
     chdir: "{{ app_path }}"
 
+- name: Wait for container to be ready
+  pause:
+    seconds: 30
+
 - name: Execute migrations.
   shell: "docker exec -i webserver1 python3 db_migrations.py"
   args:

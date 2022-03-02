@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect
 from database_operations import insert, count_rows
 import names
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():

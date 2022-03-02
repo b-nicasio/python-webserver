@@ -40,12 +40,9 @@ python3 db_seed.py
 
 ## Using the webserver
 
-If it’s a GET on /greeting, it shall respond with a simple text with the total number of
-rows in the DB.
-- Otherwise, if it’s a POST on /messages, it should add a new row, using some default
-values and shall return the content of the newly added row.
-- The / route should temporarily redirect to the /greeting route.
-- All operations should return the appropriate HTTP status codes.
+When you use the app, it will automatically send you to the /greetings page, where you can see the number of rows in the database, as well as the most recent 10 names added to the database.
+
+A POST method to the /messages location will insert a random name into the database. Return to the greetings page to see the updated information.
 
 ## Vagrant
 

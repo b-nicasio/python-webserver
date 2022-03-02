@@ -10,8 +10,7 @@ docker-compose up -d
 
 This will set up the database as well as two webservers using the nginx loadbalancer. App will be available at http://localhost.
 
-Installing python3.9 and all python dependencies is required to execute the projects without using Docker.
-Note: All of the commands listed below must be run from within the webserver/ directory.
+Installing [python3.9](https://www.python.org/downloads/) and all python dependencies is required to execute the projects without using Docker. All of the commands listed below must be run from within the webserver/ directory.
 
 To install all python dependencies simply run:
 
@@ -55,4 +54,4 @@ cd ansible
 vagrant up
 ```
 
-This will install Ubuntu on a virtual machine and use ansible to provide the application. Vagrant will establish a port forwarding rule to http://localhost for you so that you may utilize the app from your browser.
+This will install Ubuntu on a virtual machine and use Ansible to deploy the application. Vagrant will establish a port forwarding rule to http://localhost:8080 so that you may utilize the app from your browser.

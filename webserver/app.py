@@ -26,7 +26,7 @@ def post_to_database():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html', url=request.url_root), 404
+    return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
